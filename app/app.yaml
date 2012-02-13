@@ -1,5 +1,5 @@
-# Replace 'ae-boilerplate' with your application name
-application: ae-boilerplate
+# Replace 'ae-bootstrap' with your application name
+application: ae-bootstrap
 version: 1 
 runtime: python
 api_version: 1
