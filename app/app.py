@@ -9,6 +9,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 
 # Load request handlers
 import handlers
+from tools.common import is_testenv
 
 # Map url's to handlers
 urls = [
@@ -17,10 +18,11 @@ urls = [
     (r'/_ah/login_required', handlers.LogIn),
     (r'/logout', handlers.LogOut),
     (r'/account', handlers.Account),
-    (r'/account/setup', handlers.AccountSetup),
+    (r'/account/setup', handlers.AccountSetup),    
+    (r'.*', handlers.Error404)
 ]
 
-application = webapp.WSGIApplication(urls, debug=True)
+application = webapp.WSGIApplication(urls, debug=is_testenv())
 
 
 def main():

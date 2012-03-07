@@ -111,3 +111,11 @@ class AccountSetup(BaseRequestHandler):
 
         # After updating UserPrefs, redirect
         self.redirect(target_url)
+
+class Error404(BaseRequestHandler):
+    """Main handler for not found pages (404)"""
+    def get(self):
+        self.error404()
+
+    def post(self):
+        self.error404()

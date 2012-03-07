@@ -1,0 +1,48 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">App Engine ⚭ Bootstrap</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="https://github.com/alchemycs">GitHub</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using<span class="caret"</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="http://www.earthexplorer.info">Earth Explorer</a></li>
+              <li><a href="http://www.clickncool.net">Click-n-Cool</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact<span class="caret"</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="http://www.twitter.com/AlchemyCS">@AlchemyCS</a></li>
+              <li><a href="http://forr.st/-AlchemyCS">Forrst</a></li>
+              <li><a href="http://au.linkedin.com/in/mrmchugh">LinkedIN</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+      <div class="pull-right">
+        <ul class="nav">
+          {% if prefs %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="//www.gravatar.com/avatar/{{prefs.email_md5}}?s=16&d=mm" align="absmiddle" /> {{prefs.nickname}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/account">Account</a></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </li>
+          {% else %}
+          <li><a href="/login?continue-/">Test The Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

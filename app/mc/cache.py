@@ -2,6 +2,11 @@
 import logging
 from google.appengine.api import memcache
 
+# When using runtime:python27 you can just use `import json` 
+from django.utils import simplejson as json # http://stackoverflow.com/questions/1171584/how-can-i-parse-json-in-google-app-engine
+
+from google.appengine.api import urlfetch
+
 import models
 
 
@@ -56,3 +61,42 @@ def get_userprefs(user, clear=False):
     memcache.set(key, prefs)
     logging.info("cached userprefs key: %s", key)
     return prefs
+
+def get_short_url(long_url, clear=False):
+    """
+    Get the short url using the public google url shortening service.
+    See: http://goo.gl/ and http://code.google.com/apis/urlshortener/v1/getting_started.html
+    """
+    key = "short_url-%s" % long_url
+    if clear:
+        memcache.delete(key)
+        return
+
+    short_url = memcache.get(key)
+    if short_url:
+        logging.info("Return cached short url %s for %s" % (short_url, long_url))
+        return short_url
+
+    try:    
+        request_data = {
+            "longUrl":long_url
+        }
+        request_string = json.dumps(request_data)
+        
+        result = urlfetch.fetch(url="https://www.googleapis.com/urlshortener/v1/url",
+                                payload=request_string,
+                                method=urlfetch.POST,
+                                headers={'Content-Type':'application/json'}
+                                )    
+        if result.status_code == 200:
+            result_data = json.loads(result.content)
+            short_url = result_data['id']
+            memcache.set(key, short_url)
+            logging.info("Saved to cache url %s for %s" % (short_url, long_url))
+            return short_url
+        raise Exception("Bad return status from url shortening service: %s" % result.status_code)
+    except Exception as e:
+        logging.exception(e)
+    
+    return None
+

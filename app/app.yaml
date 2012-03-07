@@ -25,11 +25,6 @@ handlers:
   script: app.py
 
 # html-5 boilerplate redirects from /... to /static/... 
-- url: /apple-touch-icon\.png
-  mime_type: image/png
-  static_files: static/apple-touch-icon.png
-  upload: static/apple-touch-icon.png
-
 - url: /favicon\.ico
   mime_type: image/png
   static_files: static/favicon.ico
@@ -57,10 +52,11 @@ handlers:
   static_files: static/js/\1
   upload: static/js/(.*\.js)
 
-- url: /(.*\.html)
-  mime_type: text/html
-  static_files: static/\1
-  upload: static/(.*\.html)
+#Do you really need static html files?
+#- url: /(.*\.html)
+#  mime_type: text/html
+#  static_files: static/\1
+#  upload: static/(.*\.html)
     
 # All other requests go to app.py
 - url: /.*

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from google.appengine.ext import webapp
 from django.template import Node
+from mc import cache
 
 """
 Custom template tags, for use from within the templates.
@@ -31,5 +32,21 @@ def truncate_chars(value, maxlen):
     else:
         return "%s..." % value[:maxlen - 3]
 
-
 register.filter(truncate_chars)
+
+def short_url(long_url):
+    """Returns the short url as used by the public google url shortening service
+    See: http://goo.gl/ and http://code.google.com/apis/urlshortener/v1/getting_started.html
+    """
+    return cache.get_short_url(long_url)
+    
+register.filter(short_url)
+
+def prefix_cdn(value):
+    """Simply prefixes the string with what is in settings.CDN_PREFIX. Use when
+    locating resources, eg: <img src="{{"/img/myimage.jpg"|prefix_cdn}}"/>
+    """
+    if not value:
+        return None
+    
+    return "%s%s" % (settings.CDN_PREFIX, value)

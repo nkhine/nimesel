@@ -29,6 +29,7 @@ class BaseRequestHandler(webapp.RequestHandler):
           'prefs': self.userprefs,
           'login_url': users.create_login_url(self.request.uri),
           'logout_url': users.create_logout_url(self.request.uri),
+          'is_testenv':tools.common.is_testenv(),
         }
 
         # Add manually supplied template values
@@ -42,3 +43,8 @@ class BaseRequestHandler(webapp.RequestHandler):
     def head(self, *args):
         """Head is used by Twitter. If not there the tweet button shows 0"""
         pass
+
+    def error404(self):
+        """Renders a standard 404 page"""
+        self.render('404.html')
+        
