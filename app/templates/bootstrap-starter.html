@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      
+
     {% block head %}
     <title>{% block title %}App Engine Bootstrap{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}">
@@ -49,10 +49,17 @@
       <header>
       {% block header %}{% include "header.html" %}{% endblock header %}
       </header>
+      <!-- Prompt IE 6-7 users to install Chrome Frame. Remove this if you like pain and support IE 6-7.
+           chromium.org/developers/how-tos/chrome-frame-getting-started -->
+      <!--[if lt IE 8]>
+      <div class="alert alert-danger">
+        <strong>ATTENTION:</strong> Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a newer browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+      </div>
+      <![endif]-->
       {% block main %}
       <h1>Bootstrap starter template</h1>
       <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>        
-    {% endblock %}
+      {% endblock %}
       <footer>
       {% block footer %}{% include "footer.html" %}{% endblock %}
       </footer>

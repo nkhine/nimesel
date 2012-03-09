@@ -23,6 +23,9 @@ class BaseRequestHandler(webapp.RequestHandler):
         self.userprefs = models.UserPrefs.from_user(users.get_current_user())
 
     def render(self, template_name, template_values={}):
+        #Let's turn of GCF for those poor lost souls with IE
+        self.response.headers['X-UA-Compatible'] = 'chrome=1'
+
         # Preset values for the template
         values = {
           'request': self.request,
