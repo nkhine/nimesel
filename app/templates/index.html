@@ -1,10 +1,10 @@
 {% extends "bootstrap-starter.html" %}
 
-{% block title %}App Engine ⚭ Bootstrap - A union of Twitter Bootstrap and the App Engine Boilerplate.{% endblock %}
+{% block title %}App Engine ⚭ Essence - A union of Twitter Bootstrap and the App Engine Boilerplate.{% endblock %}
 
 {% block header %}
 <div class="hero-unit">
-    <h1>App Engine ⚭ Bootstrap<img src="/img/apple-touch-icon-72x72.png" style="vertical-align: top"/></h1>
+    <h1>App Engine ⚭ Essence<img src="/img/apple-touch-icon-72x72.png" style="vertical-align: top"/></h1>
     <p>
         A union of <a rel="nofollow" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>
         and the <a rel="nofollow" href="http://www.appengine-boilerplate.com/">App Engine Boilerplate</a>.
@@ -26,7 +26,7 @@
         <div class="span9">
             <h2>What is this?</h2>
             <p>
-                App Engine Bootstrap is a development base to get your idea up and
+                App Engine Essence is a development base to get your idea up and
                 running on Google App Engine as quickly as possible, while still looking
                 stylish.
             </p>
@@ -60,11 +60,20 @@
             </p>
             <p>
                 The <a href="http://twitter.github.com/bootstrap/" rel="nofollow">Twitter
-                Bootstrap</a> is integrated because I'm a programmer and not a designer,
+                Bootstrap (v2.0.2)</a> is integrated because I'm a programmer and not a designer,
                 and I'm tired of spending time trying to figure out what looks good or not:
-                <abbr title="Twitter Bootstrap">TB</abbr> let's me concentrate on building great stuff rather than apologising
+                <abbr title="Twitter Bootstrap">TB</abbr> allows me to
+    concentrate on building great stuff rather than apologising
                 about how it looks!
             </p>
+            <div class="alert">
+                Be sure to do some customisation to the template for your own
+                application:
+                <ul>
+                    <li>Article: <a rel="nofollow" target="_new" href="http://drawar.com/d/great-another-bootstrap-site/">Great, Another Bootstrap Site</a></li>
+                    <li>Example: <a target="_new" href="http://www.clickncool.net">Click n Cool</a></li>
+                </ul>
+            </div>
         </div>
         <div class="span6">
             <h3>Back end </h3>
@@ -73,7 +82,10 @@
                 but I have other ideas and needs. As such, App Engine Bootstrap is
                 opinionated and built to primarily accomodate what I use most.
             </p>
-            
+            <p>
+                I intend to bring this up to date shortly with <code>webapp2</code>
+                so it can be used with the <code>python27</code> runtime on App Engine.
+            </p>
             <p>
                 I'm very happy to listen to ideas, recommendations or constructive criticisms,
                 but I would love to see how you use it!
@@ -87,21 +99,21 @@
             <div class="row">
             <div class="span3">
                 <ul> 
-                    <li>An <em>extensively</em> modified fork of the <a rel="nofollow" href="http://www.appengine-boilerplate.com/">App Engine Boilerplate</a></li>
-                    <li><a rel="nofollow" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>: provides an attractive front-end so your app looks good from the outset (contrate on awesome code)</li>
+                    <li>An <em>extensively</em> modified fork of the <br/><a rel="nofollow" href="http://www.appengine-boilerplate.com/">App Engine Boilerplate</a></li>
+                    <li><a rel="nofollow" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap (v2.0.2)</a>: provides an attractive front-end so your app looks good from the outset (concentrate on awesome code)</li>
+                    <li><a rel="nofollow" href="http://fontawesome.github.com/Font-Awesome/">Font Awesome</a>: Iconic font designed for use with Twitter Bootstrap</li>
                     <li><a href="http://openid.net/" rel="nofollow">OpenID</a> authentication with a beautiful interface</li>
-                    <li>Chaching framework</li> 
-                    <li>Page not found (404) handler and page</li>
                 </ul>
             </div>
             <div class="span3">
                 <ul> 
+                    <li>Chaching framework</li> 
+                    <li>Page not found (404) handler and page</li>
                     <li>User preferences model with caching and <a href="http://www.gravatar.com" rel="nofollow">Gravatar</a> link</li>
                     <li>Best practice site configuration defaults</li>
                     <li><a href="http://mailchimp.com/" rel="nofollow">MailChimp</a> integration</li>
                     <li>Decorators: <code>@login_required</code> &amp; <code>@admin_required</code></li>
                     <li>Template filters: <code>truncate_chars</code>, <code>short_url</code> &amp; <code>prefix_cdn</code></li>
-                    <li>Minimal code, detailed comments</li>
                 </ul>
             </div>
             </div>

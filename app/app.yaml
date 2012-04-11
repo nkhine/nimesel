@@ -1,5 +1,5 @@
-# Replace 'ae-bootstrap' with your application name
-application: ae-bootstrap
+# Replace 'ae-essence' with your application name
+application: ae-essence
 version: 1 
 runtime: python
 api_version: 1
@@ -46,6 +46,12 @@ handlers:
   mime_type: text/css
   static_files: static/css/\1
   upload: static/css/(.*\.css)
+
+- url: /font/(.*\.(eot|svg|svgs|ttf|woff))
+  #mime_type: text/css
+  static_files: static/font/\1
+  upload: static/font/(.*\.(eot|svg|svgz|ttf|woff))
+
 
 - url: /js/(.*\.js)
   mime_type: text/javascript

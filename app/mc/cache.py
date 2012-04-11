@@ -95,7 +95,7 @@ def get_short_url(long_url, clear=False):
             logging.info("Saved to cache url %s for %s" % (short_url, long_url))
             return short_url
         raise Exception("Bad return status from url shortening service: %s" % result.status_code)
-    except Exception as e:
+    except Exception, e:
         logging.exception(e)
     
     return None

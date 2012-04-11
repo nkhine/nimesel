@@ -4,7 +4,7 @@
 
 /* TEAM */
   Developer: @AlchemyCS
-  Site: https://github.com/alcemycs
+  Site: https://github.com/alchemycs
   Twitter: @AlchemyCS
   Location: Asia-Pacific <http://www.earthexplorer.info/Explore/56126019-asia-pacific>
 
@@ -13,9 +13,8 @@
   App Engine Boilerplate
   Twitter Bootstrap
   
-  Boot Icon
-    - http://www.artua.com/
-    - http://www.iconfinder.com/search/?q=iconset%3Awalle
+  Flask Icon
+    - http://www.iconfinder.com/search/?q=iconset%3Ai_love_icons__by_svengraph-d2yk60n
   
 
 /* SITE */
@@ -29,7 +28,11 @@
 /    \ ) __/ ) __/   ) _) /    /( (_ \ )( /    / ) _) 
 \_/\_/(__)  (__)    (____)\_)__) \___/(__)\_)__)(____)
 
- ____   __    __  ____  ____  ____  ____   __   ____ 
-(  _ \ /  \  /  \(_  _)/ ___)(_  _)(  _ \ / _\ (  _ \
- ) _ ((  O )(  O ) )(  \___ \  )(   )   //    \ ) __/
-(____/ \__/  \__/ (__) (____/ (__) (__\_)\_/\_/(__)  
+ _______ _______ _______ _______ _       _______ _______ 
+(  ____ \  ____ \  ____ \  ____ \ (    /|  ____ \  ____ \
+| (    \/ (    \/ (    \/ (    \/  \  ( | (    \/ (    \/
+| (__   | (_____| (_____| (__   |   \ | | |     | (__    
+|  __)  (_____  )_____  )  __)  | (\ \) | |     |  __)   
+| (           ) |     ) | (     | | \   | |     | (      
+| (____/Y\____) |\____) | (____/\ )  \  | (____/\ (____/\
+(_______|_______)_______)_______//    )_)_______/_______/
