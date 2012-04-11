@@ -7,7 +7,7 @@ api_version: 1
 default_expiration: "30d"
 
 builtins:
-- datastore_admin: on
+#- datastore_admin: on
 
 handlers:
 # Cron jobs and other secured things
