@@ -2,7 +2,7 @@
 
 {% block main %}
 <h2>Account</h2>
-<form action="/account/setup" method="post" class="well">
+<form action="{{setup_uri}}" method="post" class="well">
     <input type="hidden" name="continue" value="{{ target_url }}" />
     <input type="hidden" name="subscribe" value="{% if prefs.subscribed_to_newsletter %}on{% endif %}" />    
     <div class="control-group">
