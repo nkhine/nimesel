@@ -1,28 +1,34 @@
 # Replace 'ae-essence' with your application name
 application: ae-essence
 version: 1 
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: true
 
 default_expiration: "30d"
 
 builtins:
 #- datastore_admin: on
 
+libraries:
+- name: django
+  version: latest
+  
+
 handlers:
 # Cron jobs and other secured things
 - url: /services.*
-  script: services.py
+  script: services.appliction
   login: admin
 
 # If non-authenticated user, appengine will ask for login and redirect afterwards: 
 - url: /account
-  script: app.py
+  script: app.application
   login: required
 
 # Override appengine url to provide custom OpenID login page 
 - url: /_ah/login_required
-  script: app.py
+  script: app.application
 
 # html-5 boilerplate redirects from /... to /static/... 
 - url: /favicon\.ico
@@ -66,4 +72,4 @@ handlers:
     
 # All other requests go to app.py
 - url: /.*
-  script: app.py
+  script: app.application

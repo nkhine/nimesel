@@ -8,14 +8,14 @@
     <p>
         A union of <a rel="nofollow" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>
         and the <a rel="nofollow" href="http://www.appengine-boilerplate.com/">App Engine Boilerplate</a>.
-    </p>    
+    </p>
 </div>
     
 {% endblock %}
 
 {% block main %}
     <a rel="nofollow" class="fork" href="https://github.com/alchemycs/appengine-essence"> 
-        <img src="/img/forkme-badge.png" alt="Fork me on GitHub"> 
+        <img src="/img/forkme-badge.png" alt="Fork me on GitHub">
     </a> 
     {% if is_testenv%}
     <div class="alert">
@@ -36,7 +36,7 @@
                href="http://twitter.com/share" 
                data-count="vertical"
                data-via="alchemycs"
-               data-text="Checking out App Engine Essence"></a> 
+               data-text="Checking out App Engine Essence: get up and running on #appengine quickly, while still looking stylish"></a> 
         </div> 
         <div class="span1"> 
             <g:plusone size="tall"></g:plusone> 
@@ -69,23 +69,15 @@
             </p>
             <div class="alert">
                 Be sure to do some customisation to the template for your own
-                application:
-                <ul>
-                    <li>Article: <a rel="nofollow" target="_new" href="http://drawar.com/d/great-another-bootstrap-site/">Great, Another Bootstrap Site</a></li>
-                    <li>Example: <a target="_new" href="http://www.clickncool.net">Click n Cool</a></li>
-                </ul>
+                application: <a rel="nofollow" target="_new" href="http://drawar.com/d/great-another-bootstrap-site/">Great, Another Bootstrap Site <span class="icon-external-link"></span></a>
             </div>
         </div>
         <div class="span6">
             <h3>Back end </h3>
             <p>
                 This project is based on the great work by the App Engine Boilerplate team,
-                but I have other ideas and needs. As such, App Engine Bootstrap is
+                but I have other ideas and needs. As such, App Engine Essence is
                 opinionated and built to primarily accomodate what I use most.
-            </p>
-            <p>
-                I intend to bring this up to date shortly with <code>webapp2</code>
-                so it can be used with the <code>python27</code> runtime on App Engine.
             </p>
             <p>
                 I'm very happy to listen to ideas, recommendations or constructive criticisms,
@@ -100,23 +92,25 @@
             <div class="row">
             <div class="span3">
                 <ul> 
-                    <li>An <em>extensively</em> modified fork of the <br/><a rel="nofollow" href="http://www.appengine-boilerplate.com/">App Engine Boilerplate</a></li>
-                    <li><a rel="nofollow" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap (v2.0.2)</a>: provides an attractive front-end so your app looks good from the outset (concentrate on awesome code)</li>
-                    <li><a rel="nofollow" href="http://fontawesome.github.com/Font-Awesome/">Font Awesome</a>: Iconic font designed for use with Twitter Bootstrap</li>
-                    <li><a href="http://openid.net/" rel="nofollow">OpenID</a> authentication with a beautiful interface</li>
-                    <li><a href="http://modernizr.com/" rel="nofollow">Modernizr 2.5.3</a>: I encourage you to grab your own version of Modernizr with just the features you need for you particular app. The one included here tests for most things and include <code>.load()</code>
+                    <li class="icon-ok">An <em>extensively</em> modified fork of the <br/><a rel="nofollow" href="http://www.appengine-boilerplate.com/">App Engine Boilerplate</a></li>
+                    <li class="icon-ok">Use of <code><a href="http://webapp-improved.appspot.com/" rel="nofollow">webapp2</a></code> allows you to take advantage of the <code>python27</code> runtime, threading, sessions, named routes and more!</li>
+                    <li class="icon-ok"><a rel="nofollow" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap (v2.0.2)</a>: provides an attractive front-end so your app looks good from the outset (concentrate on awesome code)</li>
+                    <li class="icon-ok"><a href="http://modernizr.com/" rel="nofollow">Modernizr 2.5.3</a>: I encourage you to grab your own version of Modernizr with just the features you need for you particular app. The one included here tests for most things and include <code>.load()</code>
+                    <li class="icon-ok"><a href="http://www.google.com/analytics/" rel="nofollow">Google Analytics</a> placeholder: doesn't render on local dev to improve speed and and not interfere with your statistics</li>
                 </ul>
             </div>
             <div class="span3">
                 <ul>
-                    <li><a href="http://www.google.com/analytics/" rel="nofollow">Google Analytics</a> placeholder: doesn't render on local dev to improve speed and and not interfere with your statistics</li>
-                    <li>Chaching framework</li> 
-                    <li>Page not found (404) handler and page</li>
-                    <li>User preferences model with caching and <a href="http://www.gravatar.com" rel="nofollow">Gravatar</a> link</li>
-                    <li>Best practice site configuration defaults</li>
-                    <li><a href="http://mailchimp.com/" rel="nofollow">MailChimp</a> integration</li>
-                    <li>Decorators: <code>@login_required</code> &amp; <code>@admin_required</code></li>
-                    <li>Template filters: <code>truncate_chars</code>, <code>short_url</code> &amp; <code>prefix_cdn</code></li>
+                    <li class="icon-ok"><a rel="nofollow" href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>: Iconic font designed for use with Twitter Bootstrap</li>
+                    <li class="icon-ok"><a href="http://openid.net/" rel="nofollow">OpenID</a> authentication with a beautiful interface</li>
+                    <li class="icon-ok"><a href="http://mailchimp.com/" rel="nofollow">MailChimp</a> integration</li>
+                    <li class="icon-ok">Decorators: <code>@login_required</code> &amp; <code>@admin_required</code></li>
+                    <li class="icon-ok">Template filters: <code>truncate_chars</code>, <code>short_url</code> &amp; <code>prefix_cdn</code></li>
+                    <li class="icon-ok">Out of the box support for <b>sessions</b> &amp; <b>named routes</b></li>
+                    <li class="icon-ok">Caching framework</li> 
+                    <li class="icon-ok">Page not found (404) handler and page</li>
+                    <li class="icon-ok">User preferences model with caching and <a href="http://www.gravatar.com" rel="nofollow">Gravatar</a> link</li>
+                    <li class="icon-ok">Best practice site configuration defaults</li>
                 </ul>
             </div>
             </div>
@@ -124,22 +118,20 @@
         <div class="span6">
             <h2> What does it <em>not</em> include?</h2>
             <ul>
-                <li>
-                    <a rel="nofollow" href="http://html5boilerplate.com/">HTML5 Boilerplate</a>:
+                <li class="icon-remove"><a rel="nofollow" href="http://html5boilerplate.com/">HTML5 Boilerplate</a>:
                     This is a fantastic piece of work, but if you are like me and you
                     are a programmer and not a designer, it doesn't help make your app look nice!
                 </li>
-                <li>
-                    Build script to optimize images, js and css files. H5BP extracted
+                <li class="icon-remove">Build script to optimize images, js and css files. H5BP extracted
                     this to it's <a rel="nofollow" href="https://github.com/h5bp/ant-build-script">own repo</a>
                     so you can include it and configure it if you want.
                 </li>
             </ul>
             <h2>What does it assume?</h3>
             <ul>
-                <li>You can, or want to program Python</li>
-                <li>You can, or want to program and deploy for App Engine</li>
-                <li>You know how, or want to program web apps</li>
+                <li class="icon-star">You can, or want to program Python</li>
+                <li class="icon-star">You can, or want to program and deploy for App Engine</li>
+                <li class="icon-star">You know how, or want to program web apps</li>
             </ul>
         </div>
     </div>

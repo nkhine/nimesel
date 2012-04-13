@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 import logging
 import urllib2
-import settings
+import webapp2
 
 try:
     import simplejson as json
 except ImportError:
     import json
 
-
 def mailchimp_subscribe(email, list_id=None, double_optin=True):
     """
     Subscribes this email to your mailchimp newsletter. If list_id is not
     set it will default to settings.MAILCHIMP_LIST_ID.
     """
-    ms = MailSnake(settings.MAILCHIMP_API_KEY)
-    list_id = list_id or settings.MAILCHIMP_LIST_ID
+    config = webapp2.get_app().config.get('mailchimp')
+    ms = MailSnake(config['api_key'])
+    list_id = list_id or config['list_id']
     res = ms.listSubscribe(id=list_id, email_address=email, \
             double_optin=double_optin)
     logging.info("MailChimp: Subscribed user %s to list %s. Result: %s", email,
@@ -28,8 +28,9 @@ def mailchimp_unsubscribe(email, list_id=None, delete_member=False,
     Unsubscribes this email from your mailchimp newsletter. If list_id is not
     set it will default to settings.MAILCHIMP_LIST_ID.
     """
-    ms = MailSnake(settings.MAILCHIMP_API_KEY)
-    list_id = list_id or settings.MAILCHIMP_LIST_ID
+    config = webapp2.get_app().config.get('mailchimp')
+    ms = MailSnake(config['api_key'])
+    list_id = list_id or config['list_id']
     res = ms.listUnsubscribe(id=list_id, email_address=email,
             delete_member=delete_member, send_goodbye=send_goodbye,
             send_notify=send_notify)
