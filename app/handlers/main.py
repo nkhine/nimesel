@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import logging
+import webapp2
 
 from hashlib import md5
 from google.appengine.ext import db
@@ -9,13 +10,12 @@ from google.appengine.ext.webapp import template
 
 # Import packages from the project
 import mc
-import settings
 import tools.mailchimp
 
 from models import *
 from baserequesthandler import BaseRequestHandler
 from tools.common import decode
-from tools.decorators import login_required
+from tools.decorators import login_required, admin_required
 
 
 # OpenID login
@@ -68,7 +68,7 @@ class Account(BaseRequestHandler):
 
         if not self.userprefs.is_setup:
             # First log in of user. Finish setup before forwarding.
-            self.render("account_setup.html", {"target_url": target_url})
+            self.render("account_setup.html", {"target_url": target_url, 'setup_uri':self.uri_for('setup')})
             return
 
         elif target_url:
@@ -77,7 +77,7 @@ class Account(BaseRequestHandler):
             return
 
         # Render the account website
-        self.render("account.html")
+        self.render("account.html", {'setup_uri':self.uri_for('setup')})
 
 
 class AccountSetup(BaseRequestHandler):
@@ -87,7 +87,7 @@ class AccountSetup(BaseRequestHandler):
         email = decode(self.request.get("email"))
         subscribe = decode(self.request.get("subscribe"))
         target_url = decode(self.request.get('continue'))
-        target_url = target_url or "/account"
+        target_url = target_url or self.uri_for('account')
 
         # Set a flag whether newsletter subscription setting has changed
         subscription_changed = bool(self.userprefs.subscribed_to_newsletter) \
@@ -103,7 +103,7 @@ class AccountSetup(BaseRequestHandler):
 
         # Subscribe this user to the email newsletter now (if wanted). By
         # default does not subscribe users to mailchimp in Test Environment!
-        if subscription_changed and settings.MAILCHIMP_ENABLED:
+        if subscription_changed and webapp2.get_app().config.get('mailchimp')['enabled']:
             if subscribe:
                 tools.mailchimp.mailchimp_subscribe(email)
             else:
@@ -111,3 +111,10 @@ class AccountSetup(BaseRequestHandler):
 
         # After updating UserPrefs, redirect
         self.redirect(target_url)
+
+class NotFound(BaseRequestHandler):
+    def get(self):
+        self.error404()
+        
+    def post(self):
+        self.error404()
