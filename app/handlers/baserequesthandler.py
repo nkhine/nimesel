@@ -57,7 +57,10 @@ class BaseRequestHandler(webapp2.RequestHandler):
             'home':webapp2.uri_for('home'),
             'login': webapp2.uri_for('login'),
             'logout': webapp2.uri_for('logout'),
-            'account': webapp2.uri_for('account')
+            'account': webapp2.uri_for('account'),
+            'forum': webapp2.uri_for('forum'),
+            'comprendre': webapp2.uri_for('comprendre'),
+            'faq': webapp2.uri_for('faq')
         }
         # Preset values for the template
         values = {

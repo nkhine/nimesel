@@ -29,6 +29,7 @@ class UserPrefs(db.Model):
     automatically provides the current UserPref object via self.userprefs.
     """
     # Base settings. Copied over from OpenID at first login (may not be valid)
+    name = db.StringProperty()
     nickname = db.StringProperty()
     email = db.StringProperty(default="")
 
@@ -84,6 +85,7 @@ class UserPrefs(db.Model):
 
         # If not existing, create now
         if not prefs:
+            name = user.name()
             nick = user.nickname()
             if user.email():
                 if not nick or "http://" in nick or "https://" in nick:
@@ -92,7 +94,8 @@ class UserPrefs(db.Model):
 
             # Create new user preference entity
             logging.info("Creating new UserPrefs for %s" % nick)
-            prefs = UserPrefs(nickname=nick,
+            prefs = UserPrefs(name=name,
+                    nickname=nick,
                     email=user.email(),
                     email_md5=md5(user.email().strip().lower()).hexdigest(),
                     federated_identity=user.federated_identity(),
@@ -141,7 +144,6 @@ class UserPrefs(db.Model):
 
 class YourCustomModel(db.Model):
     userprefs = db.ReferenceProperty(UserPrefs)
-
     demo_string_property = db.StringProperty()
     demo_boolean_property = db.BooleanProperty(default=True)
     demo_integer_property = db.IntegerProperty(default=1)

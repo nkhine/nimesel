@@ -83,6 +83,7 @@ class Account(BaseRequestHandler):
 class AccountSetup(BaseRequestHandler):
     """Initial setup of the account, after user logs in the first time"""
     def post(self):
+        name = decode(self.request.get("name"))
         username = decode(self.request.get("username"))
         email = decode(self.request.get("email"))
         subscribe = decode(self.request.get("subscribe"))
@@ -95,6 +96,7 @@ class AccountSetup(BaseRequestHandler):
 
         # Update UserPrefs object
         self.userprefs.is_setup = True
+        self.userprefs.name = name
         self.userprefs.nickname = username
         self.userprefs.email = email
         self.userprefs.email_md5 = md5(email.strip().lower()).hexdigest()
@@ -118,3 +120,34 @@ class NotFound(BaseRequestHandler):
         
     def post(self):
         self.error404()
+
+# Forum Page
+class Forum(BaseRequestHandler):
+    """
+    The Forum page.
+    """
+    @login_required
+    def get(self):
+
+        # Render the account website
+        self.render("forum.html", {'setup_uri':self.uri_for('setup')})
+
+# Comprendre Page
+class Comprendre(BaseRequestHandler):
+    """
+    The Comprendre page.
+    """
+    def get(self):
+
+        # Render the account website
+        self.render("comprendre.html", {'setup_uri':self.uri_for('setup')})
+
+# FAQ Page
+class Faq(BaseRequestHandler):
+    """
+    The FAQ page.
+    """
+    def get(self):
+
+        # Render the account website
+        self.render("faq.html", {'setup_uri':self.uri_for('setup')})

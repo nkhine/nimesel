@@ -1,5 +1,5 @@
 # Replace 'ae-essence' with your application name
-application: ae-essence
+application: nimessel
 version: 1 
 runtime: python27
 api_version: 1
@@ -63,6 +63,12 @@ handlers:
   mime_type: text/javascript
   static_files: static/js/\1
   upload: static/js/(.*\.js)
+  
+
+- url: /locales/(.*\.json)
+  mime_type: application/json
+  static_files: static/locales/\1
+  upload: static/locales/(.*\.json)
 
 #Do you really need static html files?
 #- url: /(.*\.html)
