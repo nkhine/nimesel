@@ -17,8 +17,8 @@ config['webapp2_extras.sessions'] = {
 config['template.dir'] = 'templates/'
 
 config['mailchimp'] = {
-    'api_key':'', # MailChimp settings to subscribe users after signup
-    'list_id':'', # Find it on mailchimp.com via "settings" -> "list settings and unique id"
+    'api_key':'b96f2d2299ae58ce72634f1380b75734-us4', # MailChimp settings to subscribe users after signup
+    'list_id':'61942c20fb', # Find it on mailchimp.com via "settings" -> "list settings and unique id"
     
     # Use this switch to turn the MailChimp API calls on and off. Set to True only
     # for testing and production. Set to False during development.

@@ -83,7 +83,7 @@ class Account(BaseRequestHandler):
 class AccountSetup(BaseRequestHandler):
     """Initial setup of the account, after user logs in the first time"""
     def post(self):
-        name = decode(self.request.get("name"))
+        fullname = decode(self.request.get("fullname"))
         username = decode(self.request.get("username"))
         email = decode(self.request.get("email"))
         subscribe = decode(self.request.get("subscribe"))
@@ -96,7 +96,7 @@ class AccountSetup(BaseRequestHandler):
 
         # Update UserPrefs object
         self.userprefs.is_setup = True
-        self.userprefs.name = name
+        self.userprefs.fullname = fullname
         self.userprefs.nickname = username
         self.userprefs.email = email
         self.userprefs.email_md5 = md5(email.strip().lower()).hexdigest()

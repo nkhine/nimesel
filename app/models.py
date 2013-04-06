@@ -29,7 +29,7 @@ class UserPrefs(db.Model):
     automatically provides the current UserPref object via self.userprefs.
     """
     # Base settings. Copied over from OpenID at first login (may not be valid)
-    name = db.StringProperty()
+    #fullname = db.StringProperty()
     nickname = db.StringProperty()
     email = db.StringProperty(default="")
 
@@ -54,8 +54,9 @@ class UserPrefs(db.Model):
     # is_setup: set to true after setting username and email at first login
     is_setup = db.BooleanProperty(default=False)
 
-    # Cursom properties
+    # Custom properties
     subscribed_to_newsletter = db.BooleanProperty(default=False)
+    fullname = db.StringProperty()
 
     @staticmethod
     def from_user(user):
@@ -85,7 +86,7 @@ class UserPrefs(db.Model):
 
         # If not existing, create now
         if not prefs:
-            name = user.name()
+            #name = user.name()
             nick = user.nickname()
             if user.email():
                 if not nick or "http://" in nick or "https://" in nick:
@@ -94,7 +95,7 @@ class UserPrefs(db.Model):
 
             # Create new user preference entity
             logging.info("Creating new UserPrefs for %s" % nick)
-            prefs = UserPrefs(name=name,
+            prefs = UserPrefs(#name=name,
                     nickname=nick,
                     email=user.email(),
                     email_md5=md5(user.email().strip().lower()).hexdigest(),
@@ -148,3 +149,10 @@ class YourCustomModel(db.Model):
     demo_boolean_property = db.BooleanProperty(default=True)
     demo_integer_property = db.IntegerProperty(default=1)
     demo_datetime_property = db.DateTimeProperty(auto_now_add=True)
+    
+#
+class LogVisit(db.Model):
+    user = db.KeyProperty(kind=User)
+    uastring = db.StringProperty()
+    ip = db.StringProperty()
+    timestamp = db.StringProperty()
